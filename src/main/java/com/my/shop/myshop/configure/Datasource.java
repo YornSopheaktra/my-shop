@@ -57,7 +57,7 @@ public class Datasource {
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setPackagesToScan("com.springboot.starter.domain");
+        sessionFactory.setPackagesToScan("com.my.shop.myshop.entity");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
@@ -80,7 +80,7 @@ public class Datasource {
         properties.setProperty("hibernate.generate_statistics", "false");
         properties.setProperty("hibernate.current_session_context_class", "org.springframework.orm.hibernate5.SpringSessionContext");
         properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
-        properties.setProperty("hibernate.jdbc.lob.non_contextual_creation", "true");
+        //properties.setProperty("hibernate.jdbc.lob.non_contextual_creation", "true");
         properties.setProperty("hibernate.default_schema",SCHEMA);
         return properties;
     }
