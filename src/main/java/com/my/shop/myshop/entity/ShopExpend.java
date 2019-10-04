@@ -1,11 +1,12 @@
 package com.my.shop.myshop.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "shop_expend")
-public class shopExpend {
+public class ShopExpend implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -20,8 +21,8 @@ public class shopExpend {
     @Column(name = "currency")
     private String currency;
 
-    @Column(name = "desc")
-    private String desc;
+    @Column(name = "remark")
+    private String remark;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -61,12 +62,12 @@ public class shopExpend {
         this.currency = currency;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Date getCreatedAt() {

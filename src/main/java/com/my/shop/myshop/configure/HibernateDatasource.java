@@ -17,7 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource(value = "classpath:application.properties")
-public class Datasource {
+public class HibernateDatasource {
 
     @Value("${${evn}.datasource.driverClassName}")
     private String DRIVER;
@@ -35,7 +35,7 @@ public class Datasource {
     private String SCHEMA;
 
 
-    private Logger log= LoggerFactory.getLogger(Datasource.class);
+    private Logger log= LoggerFactory.getLogger(HibernateDatasource.class);
     @Bean
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource factoryBean = new DriverManagerDataSource();
@@ -76,11 +76,11 @@ public class Datasource {
         //properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
         properties.setProperty("hibernate.show_sql", "false");
         properties.setProperty("hibernate.format_sql", "true");
-        properties.setProperty("hibernate.hbm2ddl.auto", "create");
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.generate_statistics", "false");
         properties.setProperty("hibernate.current_session_context_class", "org.springframework.orm.hibernate5.SpringSessionContext");
         properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
-        //properties.setProperty("hibernate.jdbc.lob.non_contextual_creation", "true");
+        properties.setProperty("hibernate.jdbc.lob.non_contextual_creation", "true");
         properties.setProperty("hibernate.default_schema",SCHEMA);
         return properties;
     }

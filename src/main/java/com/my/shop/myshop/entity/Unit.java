@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "shop_unit")
-public class unit implements Serializable {
+public class Unit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -26,6 +26,14 @@ public class unit implements Serializable {
 
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    public String getUnitNameKh() {
+        return unitNameKh;
+    }
+
+    public void setUnitNameKh(String unitNameKh) {
+        this.unitNameKh = unitNameKh;
+    }
 
     public Integer getUnitId() {
         return unitId;
